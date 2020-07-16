@@ -74,7 +74,7 @@ How many principal components does it look like we should choose?
 
 #### Interpret the graph  
 - How many principle components should we choose based on this?
-- Is overfitting or overfitting a problem?
+- Is overfitting or underfitting a problem?
 
 #### Level up
 - Repeat the above but don't scale the data.  Intepret the results.
