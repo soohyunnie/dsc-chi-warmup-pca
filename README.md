@@ -52,7 +52,7 @@ in `evr`
 
 - Graph `evr`
 
-- Re-graph after selecting a subset of the first few components (you'll see why)
+- Re-graph the first few components in order to focus on them (you'll see why)
 
 How many principal components does it look like we should choose?
 
