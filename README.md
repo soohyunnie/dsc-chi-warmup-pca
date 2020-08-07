@@ -37,7 +37,108 @@ from test_scripts.test_class import Test
 test = Test()
 ```
 
+
+
+
+```python
+import pandas as pd
+
+df_x = pd.DataFrame(X)
+df_y = pd.DataFrame(y)
+
+df_y
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>9995</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9996</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9997</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9998</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9999</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>10000 rows × 1 columns</p>
+</div>
+
+
+
 ## Application
+
+### Data Exploration
+
+- Turn `X` (a np array of features) into a dataframe.  How many features are there? 
+
+- Turn `y` (a np array of the target) into a df.  What type of data is `y`?
+
+- What kind of prediction problem is this?  
+
+
+```python
+# your work here
+```
 
 ### PCA Exploration
 
@@ -67,7 +168,7 @@ How many principal components does it look like we should choose?
 - for the first 50 principal components,
   - scale the data
   - generate the number of principal components and transform them into features
-  - generate train and test predictions through 10-fold cross validation
+  - Using Logistic Regression with default inputs, generate train and test predictions through 10-fold cross validation
     - *Hint:* use `sklearn.cross_validate`
     - *Level up:* ideally, you would scale and PCA on each training fold (why?).  Use a pipeline!
   - graph the means of the train and test predictions for each number of principal component
@@ -82,4 +183,9 @@ How many principal components does it look like we should choose?
 
 ```python
 #Your work here
+```
+
+
+```python
+
 ```
