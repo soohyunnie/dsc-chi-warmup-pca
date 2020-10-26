@@ -1,5 +1,4 @@
-# PCA Warmup
-hell yeah
+# Light PCA Practice
 
 ## Concepts
 
@@ -15,7 +14,7 @@ implement techniques that let us achieve around the same level of results
 as including the full feature set but with a reduced number of features.
 
 - untangling multicollinearity.  We might want to ensure that none of our features
-are correlated in order to eg ease the interpretation of our model's coefficients.  
+are correlated in order to ease the interpretation of our model's coefficients.  
 We thus want to create a set of features containing as much information as possible
 but linearly independent
 '''
@@ -55,11 +54,13 @@ test = Test()
 
 ### Data Exploration
 
-- Turn `X` (a np array of features) into a dataframe.  How many features are there? 
+- Turn `X` (a np array of features) into a dataframe.  
+    - How many features are there? 
+    - How many observations are there?
 
-- Turn `y` (a np array of the target) into a df.  What type of data is `y`?
-
-- What kind of prediction problem is this?  
+- Turn `y` (a np array of the target) into a df.
+    - Are the observations in y continuous or discreet?
+    - Would prediction of y be a regression or classification problem?
 
 
 ```python
@@ -69,52 +70,23 @@ import pandas as pd
 df_x = pd.DataFrame(X)
 df_y = pd.DataFrame(y)
 
-print(df_x.head())
-print(df_y[0].value_counts())
-print()
-print('classification! with fairly balanced classes')
+print('Number of features:', df_x.shape[1])
+print('Number of observations:', df_x.shape[0])
+print('The observations in y are discrete.\nThe following target values are observed:', df_y.iloc[:,0].unique())
+print('Prediction of the y array would be a classification problem.')
 ```
 
-             0           1           2           3          4          5    \
-    0  55.921010   15.960047   79.847579  -74.575722  62.516598  53.176317   
-    1 -73.137546  262.099610  203.580404   69.886526 -87.645923 -37.853021   
-    2 -69.267421  -88.897460 -278.270517   31.852727  78.004654  43.549353   
-    3  43.179196  -21.603889   68.748104 -290.428027  -7.420026  23.682904   
-    4  -2.371481 -211.755001  -64.853466  148.339519 -49.650926 -46.684332   
-    
-              6          7          8           9    ...         190         191  \
-    0  -51.041311  11.320495  41.056206  -53.242694  ...  -17.650115 -178.500520   
-    1  162.116358  -6.703982 -68.917502 -113.079926  ...  146.513688  138.809206   
-    2  114.118687  -7.801539   3.054873  177.264452  ...  164.909886   44.116772   
-    3 -200.636222  28.736841  26.592064    0.825606  ...   38.956570   35.309093   
-    4 -187.940417 -11.942910 -17.884681  100.247822  ... -357.976799  154.390629   
-    
-             192         193         194        195         196        197  \
-    0  24.571521  -57.691007 -118.814451  96.518514 -135.794932  23.756274   
-    1 -31.582876  -12.368799  123.042927   9.881037   80.389418   9.012742   
-    2 -20.406617   87.463821  -31.078816 -54.469739 -155.910400  -8.145598   
-    3  34.423370  161.662262   68.547606  -9.943278  103.701966 -43.998760   
-    4 -34.631452  -49.448503   54.648795 -80.964527  100.676255 -24.848862   
-    
-              198         199  
-    0  -88.186923 -154.113549  
-    1 -235.405012 -114.050512  
-    2  -80.744555  -70.138429  
-    3   33.854567 -118.591361  
-    4   84.467553   37.958813  
-    
-    [5 rows x 200 columns]
-    0    5020
-    1    4980
-    Name: 0, dtype: int64
-    
-    classification! with fairly balanced classes
+    Number of features: 200
+    Number of observations: 10000
+    The observations in y are discrete.
+    The following target values are observed: [0 1]
+    Prediction of the y array would be a classification problem.
 
 
 ### PCA Exploration
 
 #### Run the following steps
-- TTS, `random_state` = 1
+- Train Test Split, `random_state` = 1
 
 - Scale w/ StandardScaler
 
@@ -136,7 +108,6 @@ pca = PCA()
 ss = StandardScaler()
 X_train_scld = ss.fit_transform(X_train)
 X_train_pca = pca.fit_transform(X_train_scld)
-cum_sum = pca.explained_variance_ratio_.cumsum()
 evr = pca.explained_variance_ratio_
 fig, ax = plt.subplots(2)
 ax[0].plot(range(0,len(evr)), evr)
