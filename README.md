@@ -1,5 +1,4 @@
-# PCA Warmup
-hell yeah
+# Light PCA Practice
 
 ## Concepts
 
@@ -39,101 +38,17 @@ test = Test()
 
 
 
-
-```python
-import pandas as pd
-
-df_x = pd.DataFrame(X)
-df_y = pd.DataFrame(y)
-
-df_y
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>9995</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>9996</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>9997</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>9998</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>9999</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<p>10000 rows × 1 columns</p>
-</div>
-
-
-
 ## Application
 
 ### Data Exploration
 
-- Turn `X` (a np array of features) into a dataframe.  How many features are there? 
+- Turn `X` (a np array of features) into a dataframe.  
+    - How many features are there? 
+    - How many observations are there?
 
-- Turn `y` (a np array of the target) into a df.  What type of data is `y`?
-
-- What kind of prediction problem is this?  
+- Turn `y` (a np array of the target) into a df.
+    - Are the observations in y continuous or discreet?
+    - Would prediction of y be a regression or classification problem?
 
 
 ```python
@@ -143,7 +58,7 @@ df_y
 ### PCA Exploration
 
 #### Run the following steps
-- TTS, `random_state` = 1
+- Train Test Split, `random_state` = 1
 
 - Scale w/ StandardScaler
 
