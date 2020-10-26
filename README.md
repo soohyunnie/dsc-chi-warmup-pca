@@ -1,4 +1,4 @@
-# Light PCA Practice
+# PCA Practice
 
 ## Concepts
 
